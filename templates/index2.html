@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>My Cloudant DB </title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+
+  <body>
+ <div class="container">
+    <h1>Menu</h1>
+   <form id="upload_form" action="/localList" method="POST" enctype="multipart/form-data">
+
+      <input type="submit" name="localList" value="1. View Local Files" >
+
+   </form>
+
+   <form id="upload_form" action="/uploadpage" method="POST" enctype="multipart/form-data">
+
+      <input type="submit" name="upload" value="2. Upload" >
+
+   </form>
+   <form id="download_form" action="/downloadPage" method="POST" enctype="multipart/form-data">
+      <input type="submit" name="download" value="3. Download" >
+
+   </form>
+    <form id="delete_form" action="/deletePage" method="POST" enctype="multipart/form-data">
+      <input type="submit" name="delete" value="4. Delete" >
+
+   </form>
+     <form id="list_form" action="/list" method="POST" enctype="multipart/form-data">
+      <input type="submit" name="list" value="5. Bucket file list" >
+
+   </form>
+     <form id="list_form" action="/showImagePage" method="POST" enctype="multipart/form-data">
+      <input type="submit" name="list" value="6. Show Image" >
+
+   </form>
+     <form id="list_form" action="/showTextFile" method="POST" enctype="multipart/form-data">
+      <input type="submit" name="list" value="7. Show Text File" >
+
+   </form>
+     <h1>List of files</h1>
+    {% for tmp in fileList %}
+      <p>{{ tmp.filename }} </p>
+        {% endfor %}
+   <hr>
+   <h1>Upload a file</h1>
+   <form id="upload_form" action="/upload" method="POST" enctype="multipart/form-data">
+      <input type="file" name="file" accept="uploaded_files/*" multiple>
+      <input type="submit" name="upload" value="Upload" >
+	  
+   </form>
+   <hr>
+   <h1>Download a file</h1>
+   <form id="download_form" action="/download" method="POST">
+     File Name: <input type="text" name="filename" placeholder="Enter file name"><br><br>
+	 File version number:<input type="text" name="version number" placeholder="Enter version number of the file"><br><br>
+     <input type="submit" name="download" value="download">
+   </form>
+   <hr>
+   <h1>Delete a file with version number</h1>
+   <form id="delete_form" action="/delete" method="POST">
+     File Name: <input type="text" name="filename" placeholder="Enter file name"><br><br>
+     File version number:<input type="text" name="version number" placeholder="Enter version number of the file"><br><br>
+	 <input type="submit" name="delete" value="delete">
+   </form>
+   <hr>
+     <hr>
+   <h1>delete a file with time</h1>
+   <form id="delete_form" action="/deletetime" method="POST">
+     File Name: <input type="text" name="filename" placeholder="Enter file name"><br><br>
+     Time <input type="datetime-local" name="modtime" placeholder="Enter time"><br><br>
+	 <input type="submit" name="delete" value="delete">
+   </form>
+   <hr>
+   <h1>Here you can List all the files</h1>
+   <form id="list_form" action="/list" method="POST">
+     <input type="submit" name="list" value="list">
+   </form>
+   <hr>
+ <hr>
+   <h1>Exit</h1>
+   <form id="exit_form" action="/exit" method="POST">
+     <input type="submit" name="exit" value="exit">
+   </form>
+   <hr>
+  </div>
+ </body>
+
+</html>

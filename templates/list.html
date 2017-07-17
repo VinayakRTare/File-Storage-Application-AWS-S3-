@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+ <div class="container">
+      <h1>List of Files</h1>
+      <p> file name &nbsp;&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Size            &nbsp&nbsp&nbsp   Date  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp   </p>
+
+        {% for tmp in files %}
+      <p>{{ tmp.name}} &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp {{ tmp.size }} &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp {{ tmp.lastM }}</p>
+        {% endfor %}
+  </div>
+ <br><form action="/indexPage" method="post"><input type="Submit" value="Go to Home"></form>
+
+</body>
+</html>

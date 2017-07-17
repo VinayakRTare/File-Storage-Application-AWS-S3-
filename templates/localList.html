@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>My Cloudant DB </title>
+
+    <link rel="stylesheet" href="static/stylesheets/style.css">
+  </head>
+
+  <body>
+ <div class="container">
+     <h1>List of files</h1>
+    {% for tmp in fileList %}
+      <p>{{ tmp.filename }} </p>
+        {% endfor %}
+   <hr>
+ </div>
+</body>
+</html>
